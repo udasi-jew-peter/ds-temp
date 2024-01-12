@@ -27,7 +27,7 @@
     "baseUrl": "."
   },
   "exclude": ["node_modules"],
-  "include": ["./**/*.ts", "index.js"],
+  "include": ["./src/**/*.ts"],
   "ts-node": {
     // Tell ts-node CLI to install the --loader automatically
     "esm": true

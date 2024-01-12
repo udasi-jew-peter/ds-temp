@@ -2,14 +2,9 @@
   "source": ["./tokens.json"],
   "platforms": {
     "js": {
-      "buildPath": "./dist/",
+      "buildPath": "./src/",
       "transformGroup": "react-native",
-      "transforms": [
-        "name/cti/pascal",
-        "name/type",
-        "value/strToInt",
-        "value/opacity"
-      ],
+      "transforms": ["name/cti/pascal", "name/type", "value/strToInt", "value/opacity", "time/msToInt"],
       "files": [
         {
           "destination": "tokens.js",

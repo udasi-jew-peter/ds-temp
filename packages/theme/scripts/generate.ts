@@ -1,8 +1,8 @@
-import StyleDictionary, { TransformedToken } from "style-dictionary";
+import StyleDictionary, { TransformedToken } from 'style-dictionary';
 
 // Prepend token type to name
 const customNameTransformer = (token: TransformedToken) => {
-  if (!token.name.toLowerCase().startsWith(token.original.type.toLowerCase())) {
+  if (!token.name.toLowerCase().startsWith(token.original.type.toLowerCase()) && token.original.type !== 'other') {
     token.name = `${token.original.type as string}${token.name}`;
   } else {
     token.name = token.name.charAt(0).toLowerCase() + token.name.slice(1);
@@ -12,6 +12,16 @@ const customNameTransformer = (token: TransformedToken) => {
 
 // Transform string to number
 const strToNumberTransformer = (token: TransformedToken) => {
+  try {
+    token.value = parseFloat(token.value);
+  } catch (e) {
+    console.log(e);
+  } finally {
+    return token.value;
+  }
+};
+
+const msToIntTransformer = (token: TransformedToken) => {
   try {
     token.value = parseFloat(token.value);
   } catch (e) {
@@ -33,30 +43,45 @@ const opacityTransformer = (token: TransformedToken) => {
 };
 
 StyleDictionary.registerTransform({
-  type: "name",
-  name: "name/type",
+  type: 'name',
+  name: 'name/type',
   transformer: customNameTransformer,
 });
 
 StyleDictionary.registerTransform({
-  type: "value",
-  name: "value/strToInt",
-  matcher: (token) => {
+  type: 'value',
+  name: 'value/strToInt',
+  matcher: token => {
     return (
-      (token.type === "borderRadius" || token.type === "borderWidth") &&
-      typeof token.value === "string"
+      (token.type === 'borderRadius' ||
+        token.type === 'borderWidth' ||
+        token.type === 'spacing' ||
+        token.type === 'fontSizes' ||
+        token.type === 'lineHeights' ||
+        token.type === 'letterSpacing' ||
+        token.type === 'sizing') &&
+      typeof token.value === 'string'
     );
   },
   transformer: strToNumberTransformer,
 });
 
 StyleDictionary.registerTransform({
-  type: "value",
-  name: "value/opacity",
-  matcher: (token) => {
-    return token.type === "opacity" && typeof token.value === "string";
+  type: 'value',
+  name: 'time/msToInt',
+  matcher: token => {
+    return typeof token.value === 'string' && token.value.endsWith('ms');
+  },
+  transformer: msToIntTransformer,
+});
+
+StyleDictionary.registerTransform({
+  type: 'value',
+  name: 'value/opacity',
+  matcher: token => {
+    return token.type === 'opacity' && typeof token.value === 'string';
   },
   transformer: opacityTransformer,
 });
 
-StyleDictionary.extend("config.json").buildAllPlatforms();
+StyleDictionary.extend('config.json').buildAllPlatforms();

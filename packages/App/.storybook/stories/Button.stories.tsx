@@ -109,7 +109,7 @@ export const PrimaryLoading = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 2800);
+    }, 2800 + (Math.random() - 0.5) * 1000);
   };
 
   return (

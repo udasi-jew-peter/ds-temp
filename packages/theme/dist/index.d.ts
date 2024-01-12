@@ -34,13 +34,13 @@ declare const theme: {
         darkContentSecondary: string;
     };
     spacing: {
-        xxComfortable: string;
-        xComfortable: string;
-        comfortable: string;
-        base: string;
-        tight: string;
-        xTight: string;
-        xxTight: string;
+        xxComfortable: number;
+        xComfortable: number;
+        comfortable: number;
+        base: number;
+        tight: number;
+        xTight: number;
+        xxTight: number;
     };
     textVariants: {
         headingXSmall: any;
@@ -69,10 +69,13 @@ declare const theme: {
         veryTransparent: number;
     };
     sizing: {
-        minimumTappableArea: string;
-        iconSmall: string;
-        iconMedium: string;
-        iconLarge: string;
+        minimumTappableArea: number;
+        iconSmall: number;
+        iconMedium: number;
+        iconLarge: number;
+        iconXLarge: number;
+        buttonHeightLarge: number;
+        buttonHeightMedium: number;
     };
     borders: {
         input: {
@@ -87,6 +90,41 @@ declare const theme: {
             color: string;
             width: number;
         };
+    };
+    borderWidths: {
+        default: number;
+        focus: number;
+        card: number;
+    };
+    breakpoints: {
+        phone: number;
+        tablet: number;
+    };
+    durations: {
+        duration0: number;
+        duration1: number;
+        duration2: number;
+        duration3: number;
+        duration4: number;
+        duration5: number;
+        duration6: number;
+        duration7: number;
+    };
+    easings: {
+        entranceEffective: string;
+        entranceRevealing: string;
+        exitEffective: string;
+        exitRevealing: string;
+        standardAttentive: string;
+        standardEffective: string;
+        standardRevealing: string;
+    };
+    delays: {
+        delay0: number;
+        delay1: number;
+        delay2: number;
+        delay3: number;
+        delay4: number;
     };
 };
 export type Theme = typeof theme;

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {Box, Pressable, Text} from '../foundation';
 import {useTheme} from '@shopify/restyle';
 import {Theme} from '@jupitermoney/io-theme';
@@ -203,20 +203,34 @@ const Button: React.FC<ButtonProps> = ({
         borderBottomWidth:
           variant === 'tertiary' ? borderWidths.default : undefined,
       }}
-      transition={{
-        duration: durations.duration0,
-        delay: delays.delay0,
-      }}
-      animate={({pressed}) => {
-        'worklet';
+      from={{scale: 1, backgroundColor}}
+      transition={useMemo(
+        () =>
+          ({}) => {
+            'worklet';
 
-        return {
-          scale: pressed ? 0.95 : 1,
-          backgroundColor: pressed
-            ? colors.lightBackgroundsPressedA
-            : backgroundColor,
-        };
-      }}>
+            return {
+              duration: durations.duration0,
+              delay: delays.delay0,
+              type: 'timing',
+            };
+          },
+        [delays.delay0, durations.duration0],
+      )}
+      animate={useMemo(
+        () =>
+          ({pressed}) => {
+            'worklet';
+
+            return {
+              scale: pressed ? 0.95 : 1,
+              backgroundColor: pressed
+                ? colors.lightBackgroundsPressedA
+                : backgroundColor,
+            };
+          },
+        [backgroundColor, colors.lightBackgroundsPressedA],
+      )}>
       <MotiView
         from={{
           opacity: 1,

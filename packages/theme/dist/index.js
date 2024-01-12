@@ -1,6 +1,6 @@
-import { createTheme } from "@shopify/restyle";
-import * as tokens from "./dist/tokens";
-import { transformThemeTypographyToken } from "./utils/typography";
+import { createTheme } from '@shopify/restyle';
+import * as tokens from './tokens';
+import { transformThemeTypographyToken } from './utils/typography';
 const palette = {
     lightBackgroundsAccent: tokens.colorLightBackgroundsAccent,
     lightBackgroundsDisabled: tokens.colorLightBackgroundsDisabled,
@@ -77,11 +77,49 @@ const theme = createTheme({
         iconSmall: tokens.sizingIconSmall,
         iconMedium: tokens.sizingIconMedium,
         iconLarge: tokens.sizingIconLarge,
+        iconXLarge: tokens.sizingIconXLarge,
+        buttonHeightLarge: tokens.sizingButtonHeightLarge,
+        buttonHeightMedium: tokens.sizingButtonHeightMedium,
     },
     borders: {
         input: tokens.borderInput,
         inputFocus: tokens.borderInputFocus,
         card: tokens.borderCard,
+    },
+    borderWidths: {
+        default: tokens.borderWidthDefault,
+        focus: tokens.borderWidthFocus,
+        card: tokens.borderWidthCard,
+    },
+    breakpoints: {
+        phone: 0,
+        tablet: 768,
+    },
+    durations: {
+        duration0: tokens.motionDurationDuration0,
+        duration1: tokens.motionDurationDuration1,
+        duration2: tokens.motionDurationDuration2,
+        duration3: tokens.motionDurationDuration3,
+        duration4: tokens.motionDurationDuration4,
+        duration5: tokens.motionDurationDuration5,
+        duration6: tokens.motionDurationDuration6,
+        duration7: tokens.motionDurationDuration7,
+    },
+    easings: {
+        entranceEffective: tokens.motionEasingEntranceEffective,
+        entranceRevealing: tokens.motionEasingEntranceRevealing,
+        exitEffective: tokens.motionEasingExitEffective,
+        exitRevealing: tokens.motionEasingExitRevealing,
+        standardAttentive: tokens.motionEasingStandardAttentive,
+        standardEffective: tokens.motionEasingStandardEffective,
+        standardRevealing: tokens.motionEasingStandardRevealing,
+    },
+    delays: {
+        delay0: tokens.motionDelayDelay0,
+        delay1: tokens.motionDelayDelay1,
+        delay2: tokens.motionDelayDelay2,
+        delay3: tokens.motionDelayDelay3,
+        delay4: tokens.motionDelayDelay4,
     },
 });
 export default theme;

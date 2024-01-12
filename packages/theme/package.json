@@ -8,8 +8,8 @@
   "scripts": {
     "compile": "tsc",
     "clear": "rm -rf dist",
-    "generate": "ts-node ./scripts/generate.ts",
-    "build": "yarn clear && yarn generate && yarn compile",
+    "generate": "ts-node ./scripts/generate",
+    "build": "yarn clear && yarn generate && yarn compile && cp ./src/tokens.js ./dist && cp ./src/tokens.d.ts ./dist",
     "prepare": "yarn build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
