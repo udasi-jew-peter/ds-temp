@@ -9,6 +9,8 @@ import React from 'react';
 import {ThemeProvider} from '@shopify/restyle';
 import StorybookUIRoot from './.storybook';
 import theme from '@jupitermoney/io-theme';
+import 'react-native-reanimated';
+import 'react-native-gesture-handler';
 
 // import React from 'react';
 // import type {PropsWithChildren} from 'react';

@@ -1,4 +1,4 @@
 module.exports = {
   stories: ['./stories/**/*.stories.?(ts|tsx|js|jsx)'],
-  addons: [],
+  addons: ['@storybook/addon-ondevice-backgrounds'],
 };

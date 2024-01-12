@@ -18,6 +18,8 @@ global.STORIES = [
   },
 ];
 
+import "@storybook/addon-ondevice-backgrounds/register";
+
 import { decorators, parameters } from "./preview";
 
 if (decorators) {
