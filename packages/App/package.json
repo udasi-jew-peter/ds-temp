@@ -1,6 +1,5 @@
 {
   "name": "App",
-  "type": "module",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -14,7 +13,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@jupitermoney/io-theme": "../theme",
     "moti": "^0.27.2",
     "react": "18.2.0",
     "react-native": "0.73.2",
