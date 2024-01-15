@@ -1,6 +1,8 @@
 import {createTheme} from '@shopify/restyle';
 import * as tokens from '@src/tokens';
 import {transformThemeTypographyToken} from './utils/typography';
+import {Easing} from 'react-native-reanimated';
+import {generateEasing} from './utils/easing';
 
 const palette = {
   // Light
@@ -125,13 +127,18 @@ const theme = createTheme({
       duration7: tokens.motionDurationDuration7,
     },
     easings: {
-      entranceEffective: tokens.motionEasingEntranceEffective,
-      entranceRevealing: tokens.motionEasingEntranceRevealing,
-      exitEffective: tokens.motionEasingExitEffective,
-      exitRevealing: tokens.motionEasingExitRevealing,
-      standardAttentive: tokens.motionEasingStandardAttentive,
-      standardEffective: tokens.motionEasingStandardEffective,
-      standardRevealing: tokens.motionEasingStandardRevealing,
+      entranceEffective: Easing.bezier(
+        tokens.motionEasingEntranceEffective[0],
+        tokens.motionEasingEntranceEffective[1],
+        tokens.motionEasingEntranceEffective[2],
+        tokens.motionEasingEntranceEffective[3],
+      ),
+      entranceRevealing: generateEasing(tokens.motionEasingEntranceRevealing),
+      exitEffective: generateEasing(tokens.motionEasingExitEffective),
+      exitRevealing: generateEasing(tokens.motionEasingExitRevealing),
+      standardAttentive: generateEasing(tokens.motionEasingStandardAttentive),
+      standardEffective: generateEasing(tokens.motionEasingStandardEffective),
+      standardRevealing: generateEasing(tokens.motionEasingStandardRevealing),
     },
     delays: {
       delay0: tokens.motionDelayDelay0,

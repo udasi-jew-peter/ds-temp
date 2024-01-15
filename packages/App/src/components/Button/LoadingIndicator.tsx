@@ -3,7 +3,6 @@ import {useTheme} from '@shopify/restyle';
 import React, {useEffect, useMemo} from 'react';
 import {StyleSheet} from 'react-native';
 import Animated, {
-  Easing,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
@@ -29,15 +28,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({show}) => {
         motion.delays.delay1,
         withTiming(1, {
           duration: motion.durations.duration1,
-          easing: Easing.bezier(
-            // TODO find an elegant solution
-            ...(motion.easings.standardEffective as [
-              number,
-              number,
-              number,
-              number,
-            ]),
-          ),
+          easing: motion.easings.standardEffective,
         }),
       );
       dot1Tweener.value = withRepeat(
@@ -46,26 +37,12 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({show}) => {
             motion.delays.delay1 * 2,
             withTiming(-10, {
               duration: motion.durations.duration1,
-              easing: Easing.bezierFn(
-                ...(motion.easings.standardAttentive as [
-                  number,
-                  number,
-                  number,
-                  number,
-                ]),
-              ),
+              easing: motion.easings.standardAttentive,
             }),
           ),
           withTiming(0, {
             duration: motion.durations.duration1,
-            easing: Easing.bezierFn(
-              ...(motion.easings.standardAttentive as [
-                number,
-                number,
-                number,
-                number,
-              ]),
-            ),
+            easing: motion.easings.standardAttentive,
           }),
         ),
         -1,
@@ -76,9 +53,15 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({show}) => {
           withSequence(
             withDelay(
               motion.delays.delay1 * 2,
-              withTiming(-10, {duration: motion.durations.duration1}),
+              withTiming(-10, {
+                duration: motion.durations.duration1,
+                easing: motion.easings.standardAttentive,
+              }),
             ),
-            withTiming(0, {duration: motion.durations.duration1}),
+            withTiming(0, {
+              duration: motion.durations.duration1,
+              easing: motion.easings.standardAttentive,
+            }),
           ),
           -1,
         ),
@@ -89,9 +72,15 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({show}) => {
           withSequence(
             withDelay(
               motion.delays.delay1 * 2,
-              withTiming(-10, {duration: motion.durations.duration1}),
+              withTiming(-10, {
+                duration: motion.durations.duration1,
+                easing: motion.easings.standardAttentive,
+              }),
             ),
-            withTiming(0, {duration: motion.durations.duration1}),
+            withTiming(0, {
+              duration: motion.durations.duration1,
+              easing: motion.easings.standardAttentive,
+            }),
           ),
           -1,
         ),

@@ -4,10 +4,10 @@ import {MotiView} from 'moti';
 import {MotiPressable} from 'moti/interactions';
 import React, {useMemo} from 'react';
 import {StyleSheet} from 'react-native';
-import {Easing} from 'react-native-reanimated';
 import {Text} from '@components/foundation';
 import {LoadingIndicator} from './LoadingIndicator';
 import Icon, {IconProps} from '@components/Icon';
+import {Easing} from 'react-native-reanimated';
 
 export interface ButtonProps {
   onPress: () => void;
@@ -61,7 +61,10 @@ const Button: React.FC<ButtonProps> = ({
     () =>
       StyleSheet.create({
         pressableContainerStyle: {
-          width: behavior === 'expand' ? '100%' : undefined,
+          width:
+            behavior === 'expand' && variant !== 'tertiary'
+              ? '100%'
+              : undefined,
         },
         pressable: {
           justifyContent: 'center',
@@ -88,11 +91,6 @@ const Button: React.FC<ButtonProps> = ({
     ],
   );
 
-  console.log(
-    typeof motion.easings.standardEffective,
-    motion.easings.standardEffective,
-  );
-
   return (
     <MotiPressable
       onPress={state !== 'loading' ? onPress : undefined}
@@ -108,20 +106,9 @@ const Button: React.FC<ButtonProps> = ({
               duration: motion.durations.duration0,
               delay: motion.delays.delay0,
               type: 'timing',
-              // easing: Easing.bezier(
-              //   // TODO find an elegant solution
-              //   0.2,
-              //   0,
-              //   0.2,
-              //   1,
-              // ),
             };
           },
-        [
-          motion.delays.delay0,
-          motion.durations.duration0,
-          // motion.easings.standardEffective,
-        ],
+        [motion.delays.delay0, motion.durations.duration0],
       )}
       animate={useMemo(
         () =>
@@ -149,15 +136,7 @@ const Button: React.FC<ButtonProps> = ({
         transition={{
           duration: motion.durations.duration1,
           delay: motion.delays.delay1,
-          easing: Easing.bezier(
-            // TODO find an elegant solution
-            ...(motion.easings.standardEffective as [
-              number,
-              number,
-              number,
-              number,
-            ]),
-          ),
+          easing: motion.easings.standardEffective,
         }}>
         <Text
           variant={

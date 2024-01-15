@@ -25,16 +25,44 @@ export default ButtonMeta;
 
 export const Primary = () => <Button onPress={() => {}} title="Click me" />;
 
-export const Secondary = () => (
-  <Button onPress={() => {}} title="Click me" variant="secondary" />
-);
-
-export const Tertiary = () => (
-  <Button onPress={() => {}} title="Click me" variant="tertiary" />
-);
-
 export const PrimaryMedium = () => (
   <Button onPress={() => {}} title="Click me" size="medium" />
+);
+
+export const PrimaryDisabled = () => (
+  <Button onPress={() => {}} title="Click me" state="disabled" />
+);
+
+export const PrimaryMediumDisabled = () => (
+  <Button onPress={() => {}} title="Click me" size="medium" state="disabled" />
+);
+
+export const PrimaryHug = () => (
+  <Button onPress={() => {}} title="Click me" behavior="hug" />
+);
+
+export const PrimaryLoading = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const onPressed = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2800 + (Math.random() - 0.5) * 1000);
+  };
+
+  return (
+    <Button
+      onPress={onPressed}
+      title="Click me"
+      variant="primary"
+      state={isLoading ? 'loading' : 'enabled'}
+    />
+  );
+};
+
+export const Secondary = () => (
+  <Button onPress={() => {}} title="Click me" variant="secondary" />
 );
 
 export const SecondaryMedium = () => (
@@ -46,19 +74,6 @@ export const SecondaryMedium = () => (
   />
 );
 
-export const TertiaryMedium = () => (
-  <Button
-    onPress={() => {}}
-    title="Click me"
-    variant="tertiary"
-    size="medium"
-  />
-);
-
-export const PrimaryDisabled = () => (
-  <Button onPress={() => {}} title="Click me" state="disabled" />
-);
-
 export const SecondaryDisabled = () => (
   <Button
     onPress={() => {}}
@@ -68,25 +83,63 @@ export const SecondaryDisabled = () => (
   />
 );
 
-export const TertiaryDisabled = () => (
-  <Button
-    onPress={() => {}}
-    title="Click me"
-    variant="tertiary"
-    state="disabled"
-  />
-);
-
-export const PrimaryMediumDisabled = () => (
-  <Button onPress={() => {}} title="Click me" size="medium" state="disabled" />
-);
-
 export const SecondaryMediumDisabled = () => (
   <Button
     onPress={() => {}}
     title="Click me"
     variant="secondary"
     size="medium"
+    state="disabled"
+  />
+);
+
+export const SecondaryHug = () => (
+  <Button
+    onPress={() => {}}
+    title="Click me"
+    variant="secondary"
+    behavior="hug"
+  />
+);
+
+export const SeconadryLoading = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const onPressed = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2800 + (Math.random() - 0.5) * 1000);
+  };
+
+  return (
+    <Button
+      onPress={onPressed}
+      variant="secondary"
+      title="Click me"
+      state={isLoading ? 'loading' : 'enabled'}
+    />
+  );
+};
+
+export const Tertiary = () => (
+  <Button onPress={() => {}} title="Click me" variant="tertiary" />
+);
+
+export const TertiaryMedium = () => (
+  <Button
+    onPress={() => {}}
+    title="Click me"
+    variant="tertiary"
+    size="medium"
+  />
+);
+
+export const TertiaryDisabled = () => (
+  <Button
+    onPress={() => {}}
+    title="Click me"
+    variant="tertiary"
     state="disabled"
   />
 );
@@ -101,11 +154,19 @@ export const TertiaryMediumDisabled = () => (
   />
 );
 
-export const PrimaryLoading = () => {
+export const TertiaryHug = () => (
+  <Button
+    onPress={() => {}}
+    title="Click me"
+    variant="tertiary"
+    behavior="hug"
+  />
+);
+
+export const TertiaryLoading = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onPressed = () => {
-    console.log('clicked');
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -115,8 +176,8 @@ export const PrimaryLoading = () => {
   return (
     <Button
       onPress={onPressed}
+      variant="tertiary"
       title="Click me"
-      variant="primary"
       state={isLoading ? 'loading' : 'enabled'}
     />
   );

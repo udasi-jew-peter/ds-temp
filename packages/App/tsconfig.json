@@ -10,5 +10,6 @@
     },
     "baseUrl": "."
   },
+  "include": ["./src/**/*"],
   "exclude": ["./metro.config.js"]
 }

@@ -1,3 +1,4 @@
+import {Easing} from 'react-native-reanimated';
 import StyleDictionary, {TransformedToken} from 'style-dictionary';
 
 // Prepend token type to name
@@ -51,25 +52,15 @@ const easingObjectTransformer = (token: TransformedToken) => {
     token.value = (token.value as string)
       .split(',')
       .map(each => parseFloat(each));
-    // token.value = Easing.bezierFn(token.value[0], token.value[1], token.value[2], token.value[3]);
+    if (token.value.length < 4) {
+      throw new Error("Missing Value: Easing doesn't have 4 values.");
+    }
   } catch (e) {
     console.log(e);
   } finally {
     return token.value;
   }
 };
-
-// // Transform easing to an object
-// const easingObjectTransformer = (token: TransformedToken) => {
-//   try {
-//     token.value = (token.value as string).split(',');
-//     token.value = { x1: token.value[0], y1: token.value[1], x2: token.value[2], y2: token.value[3] };
-//   } catch (e) {
-//     console.log(e);
-//   } finally {
-//     return token.value;
-//   }
-// };
 
 StyleDictionary.registerTransform({
   type: 'name',
