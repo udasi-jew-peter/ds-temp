@@ -5,7 +5,7 @@
 
 import {createIconSet} from 'react-native-vector-icons';
 import React from 'react';
-import {Theme} from '@jupitermoney/io-theme';
+import {Theme} from '@src/theme';
 import {useTheme} from '@shopify/restyle';
 
 interface _IconProps {

@@ -25,7 +25,7 @@ import {
 import Animated from 'react-native-reanimated';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {JsonMap} from './utils';
-import {Theme} from '@jupitermoney/io-theme';
+import {Theme} from '@src/theme';
 
 const {ScrollView: RNScrollView} = Animated;
 

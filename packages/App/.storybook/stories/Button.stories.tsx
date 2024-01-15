@@ -1,8 +1,7 @@
 import {Meta} from '@storybook/react-native';
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import Button from '../../src/components/Button';
-import {parameters} from '../preview';
+import {Button} from '../../src/components';
 
 const ButtonMeta: Meta<typeof Button> = {
   title: 'Button',
@@ -106,6 +105,7 @@ export const PrimaryLoading = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onPressed = () => {
+    console.log('clicked');
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);

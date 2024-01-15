@@ -1,6 +1,6 @@
-import { createTheme } from '@shopify/restyle';
-import * as tokens from './tokens';
-import { transformThemeTypographyToken } from './utils/typography';
+import {createTheme} from '@shopify/restyle';
+import * as tokens from '@src/tokens';
+import {transformThemeTypographyToken} from './utils/typography';
 
 const palette = {
   // Light
@@ -53,20 +53,32 @@ const theme = createTheme({
   },
   textVariants: {
     // Europa 2
-    headingXSmall: transformThemeTypographyToken(tokens.typographyHeadingXSmall),
+    headingXSmall: transformThemeTypographyToken(
+      tokens.typographyHeadingXSmall,
+    ),
     headingSmall: transformThemeTypographyToken(tokens.typographyHeadingSmall),
-    headingMedium: transformThemeTypographyToken(tokens.typographyHeadingMedium),
+    headingMedium: transformThemeTypographyToken(
+      tokens.typographyHeadingMedium,
+    ),
     headingLarge: transformThemeTypographyToken(tokens.typographyHeadingLarge),
-    headingXLarge: transformThemeTypographyToken(tokens.typographyHeadingXLarge),
-    headingXxLarge: transformThemeTypographyToken(tokens.typographyHeadingXxLarge),
+    headingXLarge: transformThemeTypographyToken(
+      tokens.typographyHeadingXLarge,
+    ),
+    headingXxLarge: transformThemeTypographyToken(
+      tokens.typographyHeadingXxLarge,
+    ),
     bodySmall: transformThemeTypographyToken(tokens.typographyBodySmall),
     bodyMedium: transformThemeTypographyToken(tokens.typographyBodyMedium),
     bodyLarge: transformThemeTypographyToken(tokens.typographyBodyLarge),
     labelSmall: transformThemeTypographyToken(tokens.typographyLabelSmall),
     labelMedium: transformThemeTypographyToken(tokens.typographyLabelMedium),
     labelLarge: transformThemeTypographyToken(tokens.typographyLabelLarge),
-    componentButtonMedium: transformThemeTypographyToken(tokens.typographyComponentButtonMedium),
-    componentButtonLarge: transformThemeTypographyToken(tokens.typographyComponentButtonLarge),
+    componentButtonMedium: transformThemeTypographyToken(
+      tokens.typographyComponentButtonMedium,
+    ),
+    componentButtonLarge: transformThemeTypographyToken(
+      tokens.typographyComponentButtonLarge,
+    ),
   },
   borderRadii: {
     small: tokens.borderRadiusSmall,
@@ -101,31 +113,33 @@ const theme = createTheme({
     phone: 0,
     tablet: 768,
   },
-  durations: {
-    duration0: tokens.motionDurationDuration0,
-    duration1: tokens.motionDurationDuration1,
-    duration2: tokens.motionDurationDuration2,
-    duration3: tokens.motionDurationDuration3,
-    duration4: tokens.motionDurationDuration4,
-    duration5: tokens.motionDurationDuration5,
-    duration6: tokens.motionDurationDuration6,
-    duration7: tokens.motionDurationDuration7,
-  },
-  easings: {
-    entranceEffective: tokens.motionEasingEntranceEffective,
-    entranceRevealing: tokens.motionEasingEntranceRevealing,
-    exitEffective: tokens.motionEasingExitEffective,
-    exitRevealing: tokens.motionEasingExitRevealing,
-    standardAttentive: tokens.motionEasingStandardAttentive,
-    standardEffective: tokens.motionEasingStandardEffective,
-    standardRevealing: tokens.motionEasingStandardRevealing,
-  },
-  delays: {
-    delay0: tokens.motionDelayDelay0,
-    delay1: tokens.motionDelayDelay1,
-    delay2: tokens.motionDelayDelay2,
-    delay3: tokens.motionDelayDelay3,
-    delay4: tokens.motionDelayDelay4,
+  motion: {
+    durations: {
+      duration0: tokens.motionDurationDuration0,
+      duration1: tokens.motionDurationDuration1,
+      duration2: tokens.motionDurationDuration2,
+      duration3: tokens.motionDurationDuration3,
+      duration4: tokens.motionDurationDuration4,
+      duration5: tokens.motionDurationDuration5,
+      duration6: tokens.motionDurationDuration6,
+      duration7: tokens.motionDurationDuration7,
+    },
+    easings: {
+      entranceEffective: tokens.motionEasingEntranceEffective,
+      entranceRevealing: tokens.motionEasingEntranceRevealing,
+      exitEffective: tokens.motionEasingExitEffective,
+      exitRevealing: tokens.motionEasingExitRevealing,
+      standardAttentive: tokens.motionEasingStandardAttentive,
+      standardEffective: tokens.motionEasingStandardEffective,
+      standardRevealing: tokens.motionEasingStandardRevealing,
+    },
+    delays: {
+      delay0: tokens.motionDelayDelay0,
+      delay1: tokens.motionDelayDelay1,
+      delay2: tokens.motionDelayDelay2,
+      delay3: tokens.motionDelayDelay3,
+      delay4: tokens.motionDelayDelay4,
+    },
   },
 });
 

@@ -1,0 +1,23 @@
+{
+  "source": ["./src/tokens/tokens.json"],
+  "platforms": {
+    "js": {
+      "buildPath": "./src/tokens/",
+      "transformGroup": "react-native",
+      "transforms": [
+        "name/cti/pascal",
+        "name/type",
+        "value/strToInt",
+        "value/opacity",
+        "time/msToInt",
+        "easing/array"
+      ],
+      "files": [
+        {
+          "destination": "index.ts",
+          "format": "javascript/es6"
+        }
+      ]
+    }
+  }
+}

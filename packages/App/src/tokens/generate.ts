@@ -1,8 +1,11 @@
-import StyleDictionary, { TransformedToken } from 'style-dictionary';
+import StyleDictionary, {TransformedToken} from 'style-dictionary';
 
 // Prepend token type to name
 const customNameTransformer = (token: TransformedToken) => {
-  if (!token.name.toLowerCase().startsWith(token.original.type.toLowerCase()) && token.original.type !== 'other') {
+  if (
+    !token.name.toLowerCase().startsWith(token.original.type.toLowerCase()) &&
+    token.original.type !== 'other'
+  ) {
     token.name = `${token.original.type as string}${token.name}`;
   } else {
     token.name = token.name.charAt(0).toLowerCase() + token.name.slice(1);
@@ -41,6 +44,32 @@ const opacityTransformer = (token: TransformedToken) => {
     return token.value;
   }
 };
+
+// Transform easing to an
+const easingObjectTransformer = (token: TransformedToken) => {
+  try {
+    token.value = (token.value as string)
+      .split(',')
+      .map(each => parseFloat(each));
+    // token.value = Easing.bezierFn(token.value[0], token.value[1], token.value[2], token.value[3]);
+  } catch (e) {
+    console.log(e);
+  } finally {
+    return token.value;
+  }
+};
+
+// // Transform easing to an object
+// const easingObjectTransformer = (token: TransformedToken) => {
+//   try {
+//     token.value = (token.value as string).split(',');
+//     token.value = { x1: token.value[0], y1: token.value[1], x2: token.value[2], y2: token.value[3] };
+//   } catch (e) {
+//     console.log(e);
+//   } finally {
+//     return token.value;
+//   }
+// };
 
 StyleDictionary.registerTransform({
   type: 'name',
@@ -84,4 +113,13 @@ StyleDictionary.registerTransform({
   transformer: opacityTransformer,
 });
 
-StyleDictionary.extend('config.json').buildAllPlatforms();
+StyleDictionary.registerTransform({
+  type: 'value',
+  name: 'easing/array',
+  matcher: token => {
+    return token.path.includes('easing');
+  },
+  transformer: easingObjectTransformer,
+});
+
+StyleDictionary.extend('src/tokens/config.json').buildAllPlatforms();
