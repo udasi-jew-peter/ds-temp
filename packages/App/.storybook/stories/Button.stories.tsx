@@ -25,6 +25,10 @@ export default ButtonMeta;
 
 export const Primary = () => <Button onPress={() => {}} title="Click me" />;
 
+export const PrimaryTrailingIcon = () => (
+  <Button onPress={() => {}} title="Click me" trailingIcon="shooting-star" />
+);
+
 export const PrimaryMedium = () => (
   <Button onPress={() => {}} title="Click me" size="medium" />
 );
@@ -61,8 +65,38 @@ export const PrimaryLoading = () => {
   );
 };
 
+export const PrimaryTrailingIconLoading = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const onPressed = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2800 + (Math.random() - 0.5) * 1000);
+  };
+
+  return (
+    <Button
+      onPress={onPressed}
+      title="Click me"
+      variant="primary"
+      state={isLoading ? 'loading' : 'enabled'}
+      trailingIcon={'shooting-star'}
+    />
+  );
+};
+
 export const Secondary = () => (
   <Button onPress={() => {}} title="Click me" variant="secondary" />
+);
+
+export const SecondaryTrailingIcon = () => (
+  <Button
+    onPress={() => {}}
+    title="Click me"
+    variant="secondary"
+    trailingIcon="shooting-star"
+  />
 );
 
 export const SecondaryMedium = () => (
@@ -124,6 +158,15 @@ export const SeconadryLoading = () => {
 
 export const Tertiary = () => (
   <Button onPress={() => {}} title="Click me" variant="tertiary" />
+);
+
+export const TertiaryTrailingIcon = () => (
+  <Button
+    onPress={() => {}}
+    title="Click me"
+    variant="tertiary"
+    trailingIcon="shooting-star"
+  />
 );
 
 export const TertiaryMedium = () => (

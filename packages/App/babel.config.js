@@ -10,6 +10,7 @@ module.exports = {
           '@components': './src/components',
           '@theme': './src/theme',
           '@tokens': './src/tokens',
+          '@assets': './assets',
         },
       },
     ],

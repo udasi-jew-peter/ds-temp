@@ -21,6 +21,8 @@
 		CD2BA9512A524CCB9EF12A7D /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CF2A4D080F54333AC9C45BC /* Manrope-Medium.ttf */; };
 		3D61CFDEA9D9433CB26E6FB0 /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFF6AF1CA77144FCB7B1F022 /* Manrope-Regular.ttf */; };
 		E21F438D170C421DBEDF14F1 /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6847A19BC1144E2483753926 /* Manrope-SemiBold.ttf */; };
+		123A0908A443439BBDD089C4 /* icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CFA07F21A24F43648EC506BC /* icons.ttf */; };
+		61DD063A7439458489E3DFB5 /* icons-config.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DAFEB8DBCC447718CE2DC88 /* icons-config.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		5CF2A4D080F54333AC9C45BC /* Manrope-Medium.ttf */ = {isa = PBXFileReference; name = "Manrope-Medium.ttf"; path = "../assets/fonts/Manrope-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		AFF6AF1CA77144FCB7B1F022 /* Manrope-Regular.ttf */ = {isa = PBXFileReference; name = "Manrope-Regular.ttf"; path = "../assets/fonts/Manrope-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		6847A19BC1144E2483753926 /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; name = "Manrope-SemiBold.ttf"; path = "../assets/fonts/Manrope-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CFA07F21A24F43648EC506BC /* icons.ttf */ = {isa = PBXFileReference; name = "icons.ttf"; path = "../assets/fonts/icons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2DAFEB8DBCC447718CE2DC88 /* icons-config.json */ = {isa = PBXFileReference; name = "icons-config.json"; path = "../assets/fonts/icons-config.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,8 @@
 				5CF2A4D080F54333AC9C45BC /* Manrope-Medium.ttf */,
 				AFF6AF1CA77144FCB7B1F022 /* Manrope-Regular.ttf */,
 				6847A19BC1144E2483753926 /* Manrope-SemiBold.ttf */,
+				CFA07F21A24F43648EC506BC /* icons.ttf */,
+				2DAFEB8DBCC447718CE2DC88 /* icons-config.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -280,6 +286,8 @@
 				CD2BA9512A524CCB9EF12A7D /* Manrope-Medium.ttf in Resources */,
 				3D61CFDEA9D9433CB26E6FB0 /* Manrope-Regular.ttf in Resources */,
 				E21F438D170C421DBEDF14F1 /* Manrope-SemiBold.ttf in Resources */,
+				123A0908A443439BBDD089C4 /* icons.ttf in Resources */,
+				61DD063A7439458489E3DFB5 /* icons-config.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

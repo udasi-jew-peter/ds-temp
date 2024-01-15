@@ -7,7 +7,6 @@ import {StyleSheet} from 'react-native';
 import {Text} from '@components/foundation';
 import {LoadingIndicator} from './LoadingIndicator';
 import Icon, {IconProps} from '@components/Icon';
-import {Easing} from 'react-native-reanimated';
 
 export interface ButtonProps {
   onPress: () => void;
@@ -33,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
     useTheme<Theme>();
 
   let backgroundColor =
-    variant === 'primary' ? colors.lightBackgroundsInteractive : undefined;
+    variant === 'primary' ? colors.lightBackgroundsInteractive : 'transparent';
   let borderColor =
     variant === 'primary' ? undefined : colors.lightBordersPrimary;
   let borderWidth = variant === 'secondary' ? borderWidths.default : undefined;
@@ -50,7 +49,7 @@ const Button: React.FC<ButtonProps> = ({
 
   if (state === 'disabled') {
     backgroundColor =
-      variant === 'tertiary' ? undefined : colors.lightBackgroundsDisabled;
+      variant === 'tertiary' ? 'transparent' : colors.lightBackgroundsDisabled;
     borderColor =
       variant === 'tertiary' ? colors.lightBordersSecondary : undefined;
     borderWidth = undefined;
@@ -91,6 +90,8 @@ const Button: React.FC<ButtonProps> = ({
     ],
   );
 
+  console.log(backgroundColor);
+
   return (
     <MotiPressable
       onPress={state !== 'loading' ? onPress : undefined}
@@ -125,6 +126,12 @@ const Button: React.FC<ButtonProps> = ({
         [backgroundColor, colors.lightBackgroundsPressedA],
       )}>
       <MotiView
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: spacing.xxTight,
+        }}
         from={{
           opacity: 1,
           scale: 1,
@@ -145,20 +152,19 @@ const Button: React.FC<ButtonProps> = ({
           color={textColor}>
           {title}
         </Text>
+        {trailingIcon !== undefined ? (
+          <Icon
+            color={
+              variant === 'primary'
+                ? 'lightContentInverseInteractive'
+                : 'lightContentPrimary'
+            }
+            name={'shooting-star'}
+            size={size === 'large' ? 'iconSmall' : 'iconXSmall'}
+          />
+        ) : null}
       </MotiView>
       <LoadingIndicator show={state === 'loading'} />
-      {trailingIcon !== undefined ? (
-        <Icon
-          color={
-            variant === 'primary'
-              ? 'lightContentInverseInteractive'
-              : 'lightContentPrimary'
-          }
-          name={trailingIcon}
-          // TODO make it iconXSmall
-          size={size === 'large' ? 'iconSmall' : 'iconSmall'}
-        />
-      ) : null}
     </MotiPressable>
   );
 };

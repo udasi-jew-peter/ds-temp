@@ -28,6 +28,14 @@
     {
       "path": "assets/fonts/Manrope-SemiBold.ttf",
       "sha1": "e423e112f4832916b05308934c10aa84fd14c607"
+    },
+    {
+      "path": "assets/fonts/icons-config.json",
+      "sha1": "b0743275e131d97c6e0603ab86e889410bfb6e2a"
+    },
+    {
+      "path": "assets/fonts/icons.ttf",
+      "sha1": "327598eb8c78870038f8fd344dcb94222a41d46a"
     }
   ]
 }

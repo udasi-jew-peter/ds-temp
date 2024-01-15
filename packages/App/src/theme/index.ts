@@ -94,6 +94,7 @@ const theme = createTheme({
   },
   sizing: {
     minimumTappableArea: tokens.sizingMinimumTappableArea,
+    iconXSmall: tokens.sizingIconXSmall,
     iconSmall: tokens.sizingIconSmall,
     iconMedium: tokens.sizingIconMedium,
     iconLarge: tokens.sizingIconLarge,

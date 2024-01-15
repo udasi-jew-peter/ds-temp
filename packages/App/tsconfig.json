@@ -6,7 +6,8 @@
       "@tokens/*": ["src/tokens/*"],
       "@theme/*": ["src/tokens/*"],
       "@components/*": ["src/components/*"],
-      "@src/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@assets/*": ["assets/*"]
     },
     "baseUrl": "."
   },
