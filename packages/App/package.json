@@ -1,5 +1,5 @@
 {
-  "name": "App",
+  "name": "@jupitermoney/components",
   "version": "0.0.1",
   "private": true,
   "rnpm": {

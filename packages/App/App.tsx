@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import {ThemeProvider} from '@shopify/restyle';
+import { ThemeProvider } from '@shopify/restyle';
 import StorybookUIRoot from './.storybook';
 import theme from '@src/theme';
 import 'react-native-reanimated';

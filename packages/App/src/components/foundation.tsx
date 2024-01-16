@@ -10,7 +10,7 @@ import {
   spacingShorthand,
   useRestyle,
 } from '@shopify/restyle';
-import React, {PropsWithChildren} from 'react';
+import React, { PropsWithChildren } from 'react';
 import {
   GestureResponderEvent,
   ImageProps,
@@ -23,36 +23,28 @@ import {
   View,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {JsonMap} from './utils';
-import {Theme} from '@src/theme';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { JsonMap } from './utils';
+import { Theme } from '@src/theme';
 
-const {ScrollView: RNScrollView} = Animated;
+const { ScrollView: RNScrollView } = Animated;
 
-const restyleFunctions = composeRestyleFunctions([
-  spacing,
-  spacingShorthand,
-  border,
-  backgroundColor,
-  shadow,
-]);
+const restyleFunctions = composeRestyleFunctions([spacing, spacingShorthand, border, backgroundColor, shadow]);
 
 /**
  * Components
  */
 export const Box = createBox<Theme>();
 export const Text = createText<Theme>();
-export const Image = React.forwardRef<RNImage, ImageProps>((props, ref) => (
-  <RNImage {...props} ref={ref} />
-));
+export const Image = React.forwardRef<RNImage, ImageProps>((props, ref) => <RNImage {...props} ref={ref} />);
 
 export const SafeBottomSpace = React.memo(() => {
-  const {bottom} = useSafeAreaInsets();
+  const { bottom } = useSafeAreaInsets();
   return <Box height={bottom} />;
 });
 
 export const SafeTopSpace = React.memo(() => {
-  const {top} = useSafeAreaInsets();
+  const { top } = useSafeAreaInsets();
   return <Box height={top} />;
 });
 
@@ -113,18 +105,17 @@ export const Pressable = React.forwardRef<
   },
 );
 
-export const TextInput = React.forwardRef<
-  RNTextInput,
-  BoxProps<Theme, true> & Omit<TextInputProps, 'style'>
->(({children, ...props}, ref) => {
-  // @ts-ignore
-  const innerProps = useRestyle(restyleFunctions, props);
-  return (
-    <RNTextInput {...innerProps} ref={ref}>
-      {children}
-    </RNTextInput>
-  );
-});
+export const TextInput = React.forwardRef<RNTextInput, BoxProps<Theme, true> & Omit<TextInputProps, 'style'>>(
+  ({ children, ...props }, ref) => {
+    // @ts-ignore
+    const innerProps = useRestyle(restyleFunctions, props);
+    return (
+      <RNTextInput {...innerProps} ref={ref}>
+        {children}
+      </RNTextInput>
+    );
+  },
+);
 
 // TODO Add Hr
 // export const Hr = ({

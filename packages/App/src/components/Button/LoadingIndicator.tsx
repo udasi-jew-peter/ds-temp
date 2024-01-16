@@ -1,7 +1,7 @@
-import {Theme} from '@src/theme';
-import {useTheme} from '@shopify/restyle';
-import React, {useEffect, useMemo} from 'react';
-import {StyleSheet} from 'react-native';
+import { Theme } from '@src/theme';
+import { useTheme } from '@shopify/restyle';
+import React, { useEffect, useMemo } from 'react';
+import { StyleSheet } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -15,8 +15,8 @@ interface LoadingIndicatorProps {
   show: boolean;
 }
 
-export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({show}) => {
-  const {colors, spacing, borderRadii, motion} = useTheme<Theme>();
+export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ show }) => {
+  const { colors, spacing, borderRadii, motion } = useTheme<Theme>();
   const visibilityTweener = useSharedValue(0);
   const dot1Tweener = useSharedValue(0);
   const dot2Tweener = useSharedValue(0);
@@ -104,21 +104,15 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({show}) => {
   }));
 
   const dot1Style = useAnimatedStyle(() => ({
-    transform: [
-      {translateX: (visibilityTweener.value - 1) * 15},
-      {translateY: dot1Tweener.value},
-    ],
+    transform: [{ translateX: (visibilityTweener.value - 1) * 15 }, { translateY: dot1Tweener.value }],
   }));
 
   const dot2Style = useAnimatedStyle(() => ({
-    transform: [{translateY: dot2Tweener.value}],
+    transform: [{ translateY: dot2Tweener.value }],
   }));
 
   const dot3Style = useAnimatedStyle(() => ({
-    transform: [
-      {translateX: (visibilityTweener.value - 1) * -15},
-      {translateY: dot3Tweener.value},
-    ],
+    transform: [{ translateX: (visibilityTweener.value - 1) * -15 }, { translateY: dot3Tweener.value }],
   }));
 
   const styles = useMemo(
