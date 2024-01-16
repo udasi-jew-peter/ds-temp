@@ -141,7 +141,7 @@ const Button: React.FC<ButtonProps> = ({
         }}
         transition={{
           duration: motion.durations.duration1,
-          delay: motion.delays.delay1,
+          delay: motion.delays.delay2,
           easing: motion.easings.standardEffective,
         }}>
         <Text

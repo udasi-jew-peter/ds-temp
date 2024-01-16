@@ -25,7 +25,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({show}) => {
   useEffect(() => {
     if (show) {
       visibilityTweener.value = withDelay(
-        motion.delays.delay1,
+        motion.delays.delay2,
         withTiming(1, {
           duration: motion.durations.duration1,
           easing: motion.easings.standardEffective,
@@ -34,7 +34,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({show}) => {
       dot1Tweener.value = withRepeat(
         withSequence(
           withDelay(
-            motion.delays.delay1 * 2,
+            motion.delays.delay1 + motion.delays.delay2,
             withTiming(-10, {
               duration: motion.durations.duration1,
               easing: motion.easings.standardAttentive,
@@ -52,7 +52,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({show}) => {
         withRepeat(
           withSequence(
             withDelay(
-              motion.delays.delay1 * 2,
+              motion.delays.delay1 + motion.delays.delay2,
               withTiming(-10, {
                 duration: motion.durations.duration1,
                 easing: motion.easings.standardAttentive,
@@ -71,7 +71,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({show}) => {
         withRepeat(
           withSequence(
             withDelay(
-              motion.delays.delay1 * 2,
+              motion.delays.delay1 + motion.delays.delay2,
               withTiming(-10, {
                 duration: motion.durations.duration1,
                 easing: motion.easings.standardAttentive,
