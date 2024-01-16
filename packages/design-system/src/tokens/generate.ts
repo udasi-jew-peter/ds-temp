@@ -1,4 +1,3 @@
-import { Easing } from 'react-native-reanimated';
 import StyleDictionary, { TransformedToken } from 'style-dictionary';
 
 // Prepend token type to name
