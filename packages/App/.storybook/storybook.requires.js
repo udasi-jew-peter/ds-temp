@@ -41,6 +41,8 @@ if (parameters) {
 const getStories = () => {
   return {
     "./src/components/Button/Button.stories.tsx": require("../src/components/Button/Button.stories.tsx"),
+    "./src/components/Divider/Divider.stories.tsx": require("../src/components/Divider/Divider.stories.tsx"),
+    "./src/components/Icon/Icon.stories.tsx": require("../src/components/Icon/Icon.stories.tsx"),
     "./src/components/IconButton/IconButton.stories.tsx": require("../src/components/IconButton/IconButton.stories.tsx"),
   };
 };
