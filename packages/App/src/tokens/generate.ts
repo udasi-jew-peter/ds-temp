@@ -1,12 +1,9 @@
-import {Easing} from 'react-native-reanimated';
-import StyleDictionary, {TransformedToken} from 'style-dictionary';
+import { Easing } from 'react-native-reanimated';
+import StyleDictionary, { TransformedToken } from 'style-dictionary';
 
 // Prepend token type to name
 const customNameTransformer = (token: TransformedToken) => {
-  if (
-    !token.name.toLowerCase().startsWith(token.original.type.toLowerCase()) &&
-    token.original.type !== 'other'
-  ) {
+  if (!token.name.toLowerCase().startsWith(token.original.type.toLowerCase()) && token.original.type !== 'other') {
     token.name = `${token.original.type as string}${token.name}`;
   } else {
     token.name = token.name.charAt(0).toLowerCase() + token.name.slice(1);
@@ -49,9 +46,7 @@ const opacityTransformer = (token: TransformedToken) => {
 // Transform easing to an
 const easingObjectTransformer = (token: TransformedToken) => {
   try {
-    token.value = (token.value as string)
-      .split(',')
-      .map(each => parseFloat(each));
+    token.value = (token.value as string).split(',').map((each) => parseFloat(each));
     if (token.value.length < 4) {
       throw new Error("Missing Value: Easing doesn't have 4 values.");
     }
@@ -71,7 +66,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   type: 'value',
   name: 'value/strToInt',
-  matcher: token => {
+  matcher: (token) => {
     return (
       (token.type === 'borderRadius' ||
         token.type === 'borderWidth' ||
@@ -89,7 +84,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   type: 'value',
   name: 'time/msToInt',
-  matcher: token => {
+  matcher: (token) => {
     return typeof token.value === 'string' && token.value.endsWith('ms');
   },
   transformer: msToIntTransformer,
@@ -98,7 +93,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   type: 'value',
   name: 'value/opacity',
-  matcher: token => {
+  matcher: (token) => {
     return token.type === 'opacity' && typeof token.value === 'string';
   },
   transformer: opacityTransformer,
@@ -107,7 +102,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   type: 'value',
   name: 'easing/array',
-  matcher: token => {
+  matcher: (token) => {
     return token.path.includes('easing');
   },
   transformer: easingObjectTransformer,

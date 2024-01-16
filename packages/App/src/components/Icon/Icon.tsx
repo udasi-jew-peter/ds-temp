@@ -4,10 +4,10 @@
  */
 
 import React from 'react';
-import {Theme} from '@src/theme';
-import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
+import { Theme } from '@src/theme';
+import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
 import icoMoonConfig from '@assets/fonts/icons-config.json';
-import {useTheme} from '@shopify/restyle';
+import { useTheme } from '@shopify/restyle';
 const _Icon = createIconSetFromIcoMoon(icoMoonConfig);
 
 export interface IconProps {
@@ -17,8 +17,8 @@ export interface IconProps {
   size: keyof Theme['sizing'];
 }
 
-const Icon: React.FC<IconProps> = ({name, color, size}) => {
-  const {colors, sizing} = useTheme<Theme>();
+const Icon: React.FC<IconProps> = ({ name, color, size }) => {
+  const { colors, sizing } = useTheme<Theme>();
   return <_Icon name={name} size={sizing[size]} color={colors[color]} />;
 };
 

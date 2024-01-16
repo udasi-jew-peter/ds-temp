@@ -1,7 +1,7 @@
 {
-  "name": "ds-mono",
+  "name": "@jupitermoney/design-system",
   "version": "1.0.0",
-  "description": "Monorepo for the design system",
+  "description": "Monorepo for the jupiter design system",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

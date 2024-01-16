@@ -1,12 +1,12 @@
-import {useTheme} from '@shopify/restyle';
-import {Theme} from '@src/theme';
-import {MotiView} from 'moti';
-import {MotiPressable} from 'moti/interactions';
-import React, {useMemo} from 'react';
-import {StyleSheet} from 'react-native';
-import {Text} from '@components/foundation';
-import {LoadingIndicator} from './LoadingIndicator';
-import Icon, {IconProps} from '@components/Icon';
+import { useTheme } from '@shopify/restyle';
+import { Theme } from '@src/theme';
+import { MotiView } from 'moti';
+import { MotiPressable } from 'moti/interactions';
+import React, { useMemo } from 'react';
+import { StyleSheet } from 'react-native';
+import { Text } from '@components/foundation';
+import { LoadingIndicator } from './LoadingIndicator';
+import Icon, { IconProps } from '@components/Icon';
 
 export interface ButtonProps {
   onPress: () => void;
@@ -28,30 +28,19 @@ const Button: React.FC<ButtonProps> = ({
   state = 'enabled',
   trailingIcon,
 }) => {
-  const {sizing, borderWidths, borderRadii, colors, spacing, motion} =
-    useTheme<Theme>();
+  const { sizing, borderWidths, borderRadii, colors, spacing, motion } = useTheme<Theme>();
 
-  let backgroundColor =
-    variant === 'primary' ? colors.lightBackgroundsInteractive : 'transparent';
-  let borderColor =
-    variant === 'primary' ? undefined : colors.lightBordersPrimary;
+  let backgroundColor = variant === 'primary' ? colors.lightBackgroundsInteractive : 'transparent';
+  let borderColor = variant === 'primary' ? undefined : colors.lightBordersPrimary;
   let borderWidth = variant === 'secondary' ? borderWidths.default : undefined;
   let textColor: keyof Theme['colors'] =
-    variant === 'primary'
-      ? 'lightContentInverseInteractive'
-      : 'lightContentPrimary';
+    variant === 'primary' ? 'lightContentInverseInteractive' : 'lightContentPrimary';
   const height =
-    variant !== 'tertiary'
-      ? size === 'large'
-        ? sizing.buttonHeightLarge
-        : sizing.buttonHeightMedium
-      : undefined;
+    variant !== 'tertiary' ? (size === 'large' ? sizing.buttonHeightLarge : sizing.buttonHeightMedium) : undefined;
 
   if (state === 'disabled') {
-    backgroundColor =
-      variant === 'tertiary' ? 'transparent' : colors.lightBackgroundsDisabled;
-    borderColor =
-      variant === 'tertiary' ? colors.lightBordersSecondary : undefined;
+    backgroundColor = variant === 'tertiary' ? 'transparent' : colors.lightBackgroundsDisabled;
+    borderColor = variant === 'tertiary' ? colors.lightBordersSecondary : undefined;
     borderWidth = undefined;
     textColor = 'lightContentDisabled';
   }
@@ -60,10 +49,7 @@ const Button: React.FC<ButtonProps> = ({
     () =>
       StyleSheet.create({
         pressableContainerStyle: {
-          width:
-            behavior === 'expand' && variant !== 'tertiary'
-              ? '100%'
-              : undefined,
+          width: behavior === 'expand' && variant !== 'tertiary' ? '100%' : undefined,
         },
         pressable: {
           justifyContent: 'center',
@@ -74,20 +60,10 @@ const Button: React.FC<ButtonProps> = ({
           borderRadius: borderRadii.small,
           borderColor,
           borderWidth,
-          borderBottomWidth:
-            variant === 'tertiary' ? borderWidths.default : undefined,
+          borderBottomWidth: variant === 'tertiary' ? borderWidths.default : undefined,
         },
       }),
-    [
-      behavior,
-      borderColor,
-      borderRadii.small,
-      borderWidth,
-      borderWidths.default,
-      height,
-      spacing.xxTight,
-      variant,
-    ],
+    [behavior, borderColor, borderRadii.small, borderWidth, borderWidths.default, height, spacing.xxTight, variant],
   );
 
   console.log(backgroundColor);
@@ -97,7 +73,7 @@ const Button: React.FC<ButtonProps> = ({
       onPress={state !== 'loading' ? onPress : undefined}
       containerStyle={styles.pressableContainerStyle}
       style={styles.pressable}
-      from={{scale: 1, backgroundColor}}
+      from={{ scale: 1, backgroundColor }}
       transition={useMemo(
         () =>
           ({}) => {
@@ -113,18 +89,17 @@ const Button: React.FC<ButtonProps> = ({
       )}
       animate={useMemo(
         () =>
-          ({pressed}) => {
+          ({ pressed }) => {
             'worklet';
 
             return {
               scale: pressed ? 0.95 : 1,
-              backgroundColor: pressed
-                ? colors.lightBackgroundsPressedA
-                : backgroundColor,
+              backgroundColor: pressed ? colors.lightBackgroundsPressedA : backgroundColor,
             };
           },
         [backgroundColor, colors.lightBackgroundsPressedA],
-      )}>
+      )}
+    >
       <MotiView
         style={{
           flexDirection: 'row',
@@ -144,21 +119,14 @@ const Button: React.FC<ButtonProps> = ({
           duration: motion.durations.duration1,
           delay: motion.delays.delay1,
           easing: motion.easings.standardEffective,
-        }}>
-        <Text
-          variant={
-            size === 'large' ? 'componentButtonLarge' : 'componentButtonMedium'
-          }
-          color={textColor}>
+        }}
+      >
+        <Text variant={size === 'large' ? 'componentButtonLarge' : 'componentButtonMedium'} color={textColor}>
           {title}
         </Text>
         {trailingIcon !== undefined ? (
           <Icon
-            color={
-              variant === 'primary'
-                ? 'lightContentInverseInteractive'
-                : 'lightContentPrimary'
-            }
+            color={variant === 'primary' ? 'lightContentInverseInteractive' : 'lightContentPrimary'}
             name={'shooting-star'}
             size={size === 'large' ? 'iconSmall' : 'iconXSmall'}
           />

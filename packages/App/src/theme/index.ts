@@ -1,8 +1,8 @@
-import {createTheme} from '@shopify/restyle';
+import { createTheme } from '@shopify/restyle';
 import * as tokens from '@src/tokens';
-import {transformThemeTypographyToken} from './utils/typography';
-import {Easing} from 'react-native-reanimated';
-import {generateEasing} from './utils/easing';
+import { transformThemeTypographyToken } from './utils/typography';
+import { Easing } from 'react-native-reanimated';
+import { generateEasing } from './utils/easing';
 
 const palette = {
   // Light
@@ -55,32 +55,20 @@ const theme = createTheme({
   },
   textVariants: {
     // Europa 2
-    headingXSmall: transformThemeTypographyToken(
-      tokens.typographyHeadingXSmall,
-    ),
+    headingXSmall: transformThemeTypographyToken(tokens.typographyHeadingXSmall),
     headingSmall: transformThemeTypographyToken(tokens.typographyHeadingSmall),
-    headingMedium: transformThemeTypographyToken(
-      tokens.typographyHeadingMedium,
-    ),
+    headingMedium: transformThemeTypographyToken(tokens.typographyHeadingMedium),
     headingLarge: transformThemeTypographyToken(tokens.typographyHeadingLarge),
-    headingXLarge: transformThemeTypographyToken(
-      tokens.typographyHeadingXLarge,
-    ),
-    headingXxLarge: transformThemeTypographyToken(
-      tokens.typographyHeadingXxLarge,
-    ),
+    headingXLarge: transformThemeTypographyToken(tokens.typographyHeadingXLarge),
+    headingXxLarge: transformThemeTypographyToken(tokens.typographyHeadingXxLarge),
     bodySmall: transformThemeTypographyToken(tokens.typographyBodySmall),
     bodyMedium: transformThemeTypographyToken(tokens.typographyBodyMedium),
     bodyLarge: transformThemeTypographyToken(tokens.typographyBodyLarge),
     labelSmall: transformThemeTypographyToken(tokens.typographyLabelSmall),
     labelMedium: transformThemeTypographyToken(tokens.typographyLabelMedium),
     labelLarge: transformThemeTypographyToken(tokens.typographyLabelLarge),
-    componentButtonMedium: transformThemeTypographyToken(
-      tokens.typographyComponentButtonMedium,
-    ),
-    componentButtonLarge: transformThemeTypographyToken(
-      tokens.typographyComponentButtonLarge,
-    ),
+    componentButtonMedium: transformThemeTypographyToken(tokens.typographyComponentButtonMedium),
+    componentButtonLarge: transformThemeTypographyToken(tokens.typographyComponentButtonLarge),
   },
   borderRadii: {
     small: tokens.borderRadiusSmall,
