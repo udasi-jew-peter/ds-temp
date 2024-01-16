@@ -62,11 +62,15 @@ const Button: React.FC<ButtonProps> = ({
           borderWidth,
           borderBottomWidth: variant === 'tertiary' ? borderWidths.default : undefined,
         },
+        textContainer: {
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: spacing.xxTight,
+        },
       }),
     [behavior, borderColor, borderRadii.small, borderWidth, borderWidths.default, height, spacing.xxTight, variant],
   );
-
-  console.log(backgroundColor);
 
   return (
     <MotiPressable
@@ -101,12 +105,7 @@ const Button: React.FC<ButtonProps> = ({
       )}
     >
       <MotiView
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: spacing.xxTight,
-        }}
+        style={styles.textContainer}
         from={{
           opacity: 1,
           scale: 1,

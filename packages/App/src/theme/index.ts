@@ -116,12 +116,7 @@ const theme = createTheme({
       duration7: tokens.motionDurationDuration7,
     },
     easings: {
-      entranceEffective: Easing.bezier(
-        tokens.motionEasingEntranceEffective[0],
-        tokens.motionEasingEntranceEffective[1],
-        tokens.motionEasingEntranceEffective[2],
-        tokens.motionEasingEntranceEffective[3],
-      ),
+      entranceEffective: generateEasing(tokens.motionEasingEntranceEffective),
       entranceRevealing: generateEasing(tokens.motionEasingEntranceRevealing),
       exitEffective: generateEasing(tokens.motionEasingExitEffective),
       exitRevealing: generateEasing(tokens.motionEasingExitRevealing),

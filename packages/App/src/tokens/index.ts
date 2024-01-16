@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 15 Jan 2024 10:14:25 GMT
+ * Generated on Mon, 15 Jan 2024 13:05:03 GMT
  */
 
 export const colorLightContentPrimary = '#313339';

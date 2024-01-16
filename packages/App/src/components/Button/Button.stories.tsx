@@ -1,33 +1,25 @@
 import { Meta } from '@storybook/react-native';
 import React, { useState } from 'react';
-import { View } from 'react-native';
-import { Button } from '../../src/components';
+import Button from '.';
+import { Box } from '..';
 
 const ButtonMeta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
   decorators: [
     (Story) => (
-      <View
-        style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          flex: 1,
-          padding: 16,
-        }}
-      >
+      <Box p="tight" alignItems="center" justifyContent="center" flex={1}>
         <Story name="default" />
-      </View>
+      </Box>
     ),
   ],
 };
 
-export default ButtonMeta;
-
 export const Primary = () => <Button onPress={() => {}} title="Click me" />;
 
-export const PrimaryTrailingIcon = () => <Button onPress={() => {}} title="Click me" trailingIcon="shooting-star" />;
-
+export const PrimaryTrailingIcon = () => {
+  <Button onPress={() => {}} title="Click me" trailingIcon="shooting-star" />;
+};
 export const PrimaryMedium = () => <Button onPress={() => {}} title="Click me" size="medium" />;
 
 export const PrimaryDisabled = () => <Button onPress={() => {}} title="Click me" state="disabled" />;
@@ -43,12 +35,9 @@ export const PrimaryLoading = () => {
 
   const onPressed = () => {
     setIsLoading(true);
-    setTimeout(
-      () => {
-        setIsLoading(false);
-      },
-      2800 + (Math.random() - 0.5) * 1000,
-    );
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2800 + (Math.random() - 0.5) * 1000);
   };
 
   return <Button onPress={onPressed} title="Click me" variant="primary" state={isLoading ? 'loading' : 'enabled'} />;
@@ -59,12 +48,9 @@ export const PrimaryTrailingIconLoading = () => {
 
   const onPressed = () => {
     setIsLoading(true);
-    setTimeout(
-      () => {
-        setIsLoading(false);
-      },
-      2800 + (Math.random() - 0.5) * 1000,
-    );
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2800 + (Math.random() - 0.5) * 1000);
   };
 
   return (
@@ -101,12 +87,9 @@ export const SeconadryLoading = () => {
 
   const onPressed = () => {
     setIsLoading(true);
-    setTimeout(
-      () => {
-        setIsLoading(false);
-      },
-      2800 + (Math.random() - 0.5) * 1000,
-    );
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2800 + (Math.random() - 0.5) * 1000);
   };
 
   return <Button onPress={onPressed} variant="secondary" title="Click me" state={isLoading ? 'loading' : 'enabled'} />;
@@ -135,13 +118,12 @@ export const TertiaryLoading = () => {
 
   const onPressed = () => {
     setIsLoading(true);
-    setTimeout(
-      () => {
-        setIsLoading(false);
-      },
-      2800 + (Math.random() - 0.5) * 1000,
-    );
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2800 + (Math.random() - 0.5) * 1000);
   };
 
   return <Button onPress={onPressed} variant="tertiary" title="Click me" state={isLoading ? 'loading' : 'enabled'} />;
 };
+
+export default ButtonMeta;
