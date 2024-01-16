@@ -1,7 +1,6 @@
 import { createTheme } from '@shopify/restyle';
 import * as tokens from '@src/tokens';
 import { transformThemeTypographyToken } from './utils/typography';
-import { Easing } from 'react-native-reanimated';
 import { generateEasing } from './utils/easing';
 
 const palette = {
@@ -23,23 +22,6 @@ const palette = {
   lightContentInverseInteractive: tokens.colorLightContentInverseInteractive,
   lightContentPrimary: tokens.colorLightContentPrimary,
   lightContentSecondary: tokens.colorLightContentSecondary,
-
-  // Dark
-  darkBackgroundsAccent: tokens.colorDarkBackgroundsAccent,
-  darkBackgroundsDisabled: tokens.colorDarkBackgroundsDisabled,
-  darkBackgroundsInteractive: tokens.colorDarkBackgroundsInteractive,
-  darkBackgroundsPrimaryA: tokens.colorDarkBackgroundsPrimaryA,
-  darkBackgroundsPrimaryB: tokens.colorDarkBackgroundsPrimaryB,
-  darkBackgroundsSecondary: tokens.colorDarkBackgroundsSecondary,
-  darkBordersPrimary: tokens.colorDarkBordersPrimary,
-  darkBordersSecondary: tokens.colorDarkBordersSecondary,
-  darkBordersTertiary: tokens.colorDarkBordersTertiary,
-  darkContentAccent: tokens.colorDarkContentAccent,
-  darkContentDisabled: tokens.colorDarkContentDisabled,
-  darkContentInteractive: tokens.colorDarkContentInteractive,
-  darkContentInverseInteractive: tokens.colorDarkContentInverseInteractive,
-  darkContentPrimary: tokens.colorDarkContentPrimary,
-  darkContentSecondary: tokens.colorDarkContentSecondary,
 };
 
 const theme = createTheme({
