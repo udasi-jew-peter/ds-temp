@@ -1,27 +1,19 @@
 import {Meta} from '@storybook/react-native';
 import React, {useState} from 'react';
-import {View} from 'react-native';
-import {Button} from '../../src/components';
+import Button from '.';
+import {Box} from '..';
 
 const ButtonMeta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
   decorators: [
     Story => (
-      <View
-        style={{
-          alignItems: 'center',
-          justifyContent: 'center',
-          flex: 1,
-          padding: 16,
-        }}>
+      <Box p="tight" alignItems="center" justifyContent="center" flex={1}>
         <Story name="default" />
-      </View>
+      </Box>
     ),
   ],
 };
-
-export default ButtonMeta;
 
 export const Primary = () => <Button onPress={() => {}} title="Click me" />;
 
@@ -225,3 +217,5 @@ export const TertiaryLoading = () => {
     />
   );
 };
+
+export default ButtonMeta;
