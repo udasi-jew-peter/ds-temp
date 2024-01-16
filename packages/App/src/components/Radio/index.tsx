@@ -14,7 +14,7 @@ const Radio: React.FC<RadioProps> = ({ label, state = 'enabled', status, onPress
   const { sizing } = useTheme<Theme>();
 
   return (
-    <Pressable onPress={onPress} flexDirection="row" alignItems="center">
+    <Pressable onPress={state === 'enabled' ? onPress : undefined} flexDirection="row" alignItems="center">
       <Box
         borderRadius="circular"
         borderColor={

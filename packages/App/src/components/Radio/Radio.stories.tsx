@@ -23,7 +23,7 @@ export const RadioDefault = () => {
 
   return (
     <Box>
-      <Text variant="bodyLarge" color="lightContentPrimary">
+      <Text variant="bodyLarge" color="lightContentPrimary" mb="xTight">
         Select an option:
       </Text>
       {Object.keys(options).map((key) => (
@@ -32,6 +32,27 @@ export const RadioDefault = () => {
           label={options[key as OptionsKey]}
           status={key === selected ? 'on' : 'off'}
           onPress={() => setSelected(key as OptionsKey)}
+        />
+      ))}
+    </Box>
+  );
+};
+
+export const RadioDisabled = () => {
+  const [selected, setSelected] = useState<OptionsKey>('a');
+
+  return (
+    <Box>
+      <Text variant="bodyLarge" color="lightContentPrimary" mb="xTight">
+        Select an option:
+      </Text>
+      {Object.keys(options).map((key) => (
+        <Radio
+          key={key}
+          label={options[key as OptionsKey]}
+          status={key === selected ? 'on' : 'off'}
+          onPress={() => setSelected(key as OptionsKey)}
+          state="disabled"
         />
       ))}
     </Box>
