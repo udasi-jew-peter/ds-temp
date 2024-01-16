@@ -4,7 +4,7 @@ import { MotiView } from 'moti';
 import { MotiPressable } from 'moti/interactions';
 import React, { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
-import { Text } from '@components/foundation';
+import { Text } from '@src/components';
 import { LoadingIndicator } from './LoadingIndicator';
 import Icon, { IconProps } from '@components/Icon';
 
@@ -12,7 +12,6 @@ export interface ButtonProps {
   onPress: () => void;
   title: string;
   variant?: 'primary' | 'secondary' | 'tertiary';
-  // TODO implement state
   state?: 'enabled' | 'disabled' | 'pressed' | 'loading';
   size?: 'large' | 'medium';
   behavior?: 'hug' | 'expand';

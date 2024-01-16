@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react-native';
 import React, { useState } from 'react';
 import Button from '.';
-import { Box } from '..';
+import { Box } from '@src/components';
 
 const ButtonMeta: Meta<typeof Button> = {
   title: 'Button',

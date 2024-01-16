@@ -1,7 +1,9 @@
 import Button, { ButtonProps } from './Button';
 import Icon, { IconProps } from './Icon';
-import { Box, Image, Pressable, SafeBottomSpace, SafeTopSpace, ScrollView, Text, TextInput } from './foundation';
+import Radio, { RadioProps } from './Radio';
 
-export { Button, Icon, Box, Image, Pressable, SafeBottomSpace, SafeTopSpace, ScrollView, Text, TextInput };
+import { Box, Image, Pressable, SafeBottomSpace, SafeTopSpace, ScrollView, Text, TextInput } from './Foundation';
 
-export type { ButtonProps, IconProps };
+export { Box, Button, Icon, Radio, Image, Pressable, SafeBottomSpace, SafeTopSpace, ScrollView, Text, TextInput };
+
+export type { ButtonProps, IconProps, RadioProps };

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react-native';
-import { Box, Text } from '..';
-import Radio from '.';
+import { Box, Text, Radio } from '@src/components';
 
 const RadioMeta: Meta<typeof Radio> = {
   title: 'Radio',
